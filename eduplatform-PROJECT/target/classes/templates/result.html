@@ -1,0 +1,33 @@
+<!-- result.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" th:href="@{/css/result.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:insert="navbar.html :: navbar"></div>
+
+<div class="container py-5">
+    <div class="card bg-dark text-white p-4 mx-auto" style="max-width: 500px;">
+        <h3 class="text-center text-danger mb-4">Your Score</h3>
+
+        <p><strong>Name:</strong> <span th:text="${result.username}"></span></p>
+        <p><strong>Correct Answers:</strong> <span th:text="${result.totalCorrect}"></span></p>
+        <p><strong>Wrong Answers:</strong> <span th:text="5 - ${result.totalCorrect}"></span></p>
+
+        <div class="text-center mt-4">
+            <a href="/score" class="btn btn-outline-warning me-2">View Scoreboard</a>
+            <a href="/" class="btn btn-outline-light">Home</a>
+        </div>
+    </div>
+</div>
+
+<div th:insert="footer.html :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
